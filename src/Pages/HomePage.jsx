@@ -22,7 +22,7 @@ const HomePage = () => {
     try {
       const response = await axiosInstance.get(`?limit=${numCountries}`, {
         headers: {
-          Authorization: `Bearer ${token}`, // Pass the token directly in the request
+          Authorization: `Bearer ${token}`,
         },
       });
 

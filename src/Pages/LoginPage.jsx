@@ -12,6 +12,7 @@ const LoginPage = ({ handleLogin }) => {
     password: "",
   });
 
+  //function for logging in, error handling
   const handleSubmit = async (e) => {
     e.preventDefault();
 

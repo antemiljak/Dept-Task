@@ -13,11 +13,13 @@ import LoginPage from "./Pages/LoginPage";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  //checking if token is in localstorage
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
   }, []);
 
+  //functions for handling login and logout
   const handleLogin = () => setIsLoggedIn(true);
 
   const handleLogout = () => setIsLoggedIn(false);

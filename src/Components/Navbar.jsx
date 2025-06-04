@@ -3,6 +3,7 @@ import { Globe } from "lucide-react";
 import toast from "react-hot-toast";
 
 const Navbar = ({ isLoggedIn, handleLogout }) => {
+  //function for logout
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("isLoggedIn");
