@@ -1,15 +1,39 @@
-# React + Vite
+# Countries Fetching App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple Countries Fetching App. Create list of your favourite countries. Add and remove fetched countries.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ![React Logo](https://img.shields.io/badge/React-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB)
+ ![Axios Logo](https://img.shields.io/badge/Axios-%231C478D.svg?&style=for-the-badge&logo=axios&logoColor=%2361DAFB)
+ ![React Router Logo](https://img.shields.io/badge/React_Router_Dom-%2320232a.svg?&style=for-the-badge&logo=react-router&logoColor=%2361DAFB)
+ ![React Hot Toast Logo](https://img.shields.io/badge/React_Hot_Toast-%2339E09E.svg?&style=for-the-badge&logo=react&logoColor=%23fff)
+ ![Framer Motion Logo](https://img.shields.io/badge/Framer_Motion-%23F24E1E.svg?&style=for-the-badge&logo=framer&logoColor=%23fff)
+ ![Lucide React Logo](https://img.shields.io/badge/Lucide_React-%233A3A3A.svg?&style=for-the-badge&logo=lucide&logoColor=%23fff)
+ ![React World Flags Logo](https://img.shields.io/badge/React_World_Flags-%234B97B4.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# Dept-Task" 
-"# Dept-Task" 
-"# Dept-Task" 
+To run this project locally, follow these steps:
+
+### 1. Clone the Repository
+
+
+```bash
+git clone https://github.com/antemiljak/Dept-Task.git
+```
+### 2. Navigate to folder
+```bash
+cd Dept-Task
+```
+### 3. Install Dependencies
+```bash
+npm i
+```
+### 4. Start the Project Locally
+```bash
+npm run dev
+```
+### 5. Login with credentials
+
+
