@@ -17,8 +17,14 @@ const HomePage = () => {
     setLoading(true);
     setError(null);
 
+    const token = localStorage.getItem("token");
+
     try {
-      const response = await axiosInstance.get(`?limit=${numCountries}`);
+      const response = await axiosInstance.get(`?limit=${numCountries}`, {
+        headers: {
+          Authorization: `Bearer ${token}`, // Pass the token directly in the request
+        },
+      });
 
       if (response.data?.data) {
         setCountries(response.data.data);

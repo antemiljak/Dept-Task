@@ -1,12 +1,20 @@
-import { useNavigate } from "react-router-dom";
+import axiosInstance from "../lib/axios";
 import { Globe } from "lucide-react";
+import toast from "react-hot-toast";
 
-const Navbar = ({ isLoggedIn, onLogout }) => {
-  const navigate = useNavigate();
-
+const Navbar = ({ isLoggedIn, handleLogout }) => {
   const logout = () => {
-    onLogout();
-    navigate("/login");
+    localStorage.removeItem("token");
+    localStorage.removeItem("isLoggedIn");
+
+    axiosInstance.defaults.headers.common["Authorization"] = "";
+
+    handleLogout();
+
+    toast.success(`Successfully logged out!`, {
+      duration: 3000,
+      position: "top-right",
+    });
   };
 
   return (

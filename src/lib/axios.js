@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL, // API URL can be set globally
+  baseURL: "https://bootcamp2025.depster.me/api/countries",
   headers: {
-    Authorization: `Bearer ${import.meta.env.VITE_BEARER_TOKEN}`, // You can globally apply the token
+    "Content-Type": `application/json`,
   },
 });
 

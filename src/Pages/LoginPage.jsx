@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axiosInstance from "../lib/axios";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import LoginPageTable from "../Components/LoginPageTable";
 import toast from "react-hot-toast";
 
-const LoginPage = ({ onLogin }) => {
-  const navigate = useNavigate();
-
+const LoginPage = ({ handleLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -14,41 +12,49 @@ const LoginPage = ({ onLogin }) => {
     password: "",
   });
 
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    if (isLoggedIn) {
-      navigate("/", { replace: true });
-    }
-  }, [navigate]);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const storedUser = JSON.parse(localStorage.getItem("userInfo"));
+    if (!formData.email || !formData.password) {
+      toast.error("Email and password are required!", {
+        duration: 3000,
+        position: "top-center",
+      });
+      return;
+    }
 
-    if (
-      storedUser &&
-      storedUser.email === formData.email &&
-      storedUser.password === formData.password
-    ) {
-      onLogin();
-    } else if (!formData.email) {
-      toast.error(`Email missing!`, {
-        duration: 3000,
-        position: "top-center",
-      });
-    } else if (!formData.password) {
-      toast.error(`Password missing!`, {
-        duration: 3000,
-        position: "top-center",
-      });
-    } else {
-      toast.error("Invalid credentials!", {
+    try {
+      const response = await axiosInstance.post(
+        "https://bootcamp2025.depster.me/login",
+        {
+          email: formData.email,
+          password: formData.password,
+        }
+      );
+      const token = response.data?.data.token;
+
+      if (token) {
+        localStorage.setItem("token", token);
+        localStorage.setItem("isLoggedIn", "true");
+        handleLogin();
+        toast.success("Login successful!", {
+          duration: 2000,
+          position: "top-center",
+        });
+      } else {
+        toast.error("Login failed: No token received", {
+          duration: 3000,
+          position: "top-center",
+        });
+      }
+    } catch (error) {
+      toast.error("Invalid email or password!", {
         duration: 3000,
         position: "top-center",
       });
     }
   };
+
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
       {/* left */}
